@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-app-purple: #7c3aed;
+  --color-app-gold: #f59e0b;
+  --color-app-cyan: #06b6d4;
+  --color-app-bg: #0a0a0f;
+  --color-app-card: #111118;
+}
+
+body {
+  background-color: var(--color-app-bg);
+  color: #e0e0ff;
+  font-family: var(--font-sans);
+}
+
+/* Custom UI Components and Animations */
+
+.mic-circle {
+  background: radial-gradient(circle, #4c1d95, #1e1b2e);
+  border: 12px solid rgba(124, 58, 237, 0.3);
+  box-shadow: 0 0 80px rgba(124, 58, 237, 0.6);
+  transition: all 0.3s;
+}
+
+.mic-circle:hover {
+  border-color: rgba(245, 158, 11, 0.6);
+  box-shadow: 0 0 100px rgba(124, 58, 237, 0.8);
+}
+
+.mic-circle:active {
+  transform: scale(0.92);
+}
+
+.mic-circle.recording {
+  background: radial-gradient(circle, #b91c1c, #4a1a1a);
+  border-color: rgba(239, 68, 68, 0.8);
+  box-shadow: 0 0 90px rgba(239, 68, 68, 0.7);
+  animation: pulse-shadow 1.2s infinite;
+}
+
+@keyframes pulse-shadow {
+  0% { box-shadow: 0 0 40px rgba(239, 68, 68, 0.5); }
+  50% { box-shadow: 0 0 100px rgba(239, 68, 68, 0.9); }
+  100% { box-shadow: 0 0 40px rgba(239, 68, 68, 0.5); }
+}
+
+.waveform-bar {
+  flex: 1;
+  background: linear-gradient(#a855f7, #f59e0b);
+  animation: soundwave 1.1s infinite ease-in-out;
+  border-radius: 999px;
+  height: 100%;
+  transform-origin: center;
+}
+
+@keyframes soundwave {
+  0%, 100% { transform: scaleY(0.4); }
+  50% { transform: scaleY(1); }
+}
+
+.waveform-bar:nth-child(1) { animation-delay: 0s; }
+.waveform-bar:nth-child(2) { animation-delay: 0.1s; }
+.waveform-bar:nth-child(3) { animation-delay: 0.2s; }
+.waveform-bar:nth-child(4) { animation-delay: 0.3s; }
+.waveform-bar:nth-child(5) { animation-delay: 0.4s; }
+
+.logo-text {
+  background: linear-gradient(90deg, var(--color-app-purple), var(--color-app-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
