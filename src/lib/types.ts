@@ -13,6 +13,16 @@ export interface BeatData {
   chord: string | null;
 }
 
+export interface VocalLayer {
+  id: string;
+  name: string;
+  timestamp: string;
+  duration: string;
+  isMuted: boolean;
+  isSolo: boolean;
+  pitchShift?: number; // Semitone offset (-12 to +12)
+}
+
 export const Storage = {
   get<T>(key: string, fallback: T): T {
     try {
